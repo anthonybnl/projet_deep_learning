@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from torch import nn
 import torch
 from torchvision.models import resnet18, ResNet18_Weights
@@ -43,7 +42,7 @@ class Hybride_ChestMNIST(nn.Module):
         out = out.mean(dim=1)  # (B, 1, 256) global average pooling
         return self.classifier(out)  # (B, 14) → sigmoid pour multi-label
 
-def get_model(device = 'cpu'):
+def get_model_hybrid(device = 'cpu'):
     model = Hybride_ChestMNIST()
     model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
     model.to(device)
