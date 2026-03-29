@@ -3,7 +3,7 @@ from torch import nn
 import torch
 from torchvision.models import resnet18, ResNet18_Weights
 
-MODEL_PATH = Path.cwd() / "models" / "cnn_chestmnist_hybride.pth"
+MODEL_PATH = Path.cwd().parent / "models" / "cnn_chestmnist_hybride.pth"
 
 class Hybride_ChestMNIST(nn.Module):
     def __init__(self, num_labels=14, freeze_cnn=True):

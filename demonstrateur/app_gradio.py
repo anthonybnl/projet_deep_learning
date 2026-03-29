@@ -4,8 +4,8 @@ import torch
 import matplotlib.pyplot as plt
 from torchvision import transforms
 from load_data import load_test_dataset, get_label_names
-from demonstrateur.model_hybrid import get_model_hybrid
-from demonstrateur.model_AE import get_model_ae
+from model_hybrid import get_model_hybrid
+from model_AE import get_model_ae
 
 LABEL_NAMES = get_label_names()
 
@@ -72,7 +72,7 @@ def evaluate_hybrid(index: int):
     tensor = inference_transform(img).unsqueeze(0).to(DEVICE)  # (1, 3, 64, 64)
 
     with torch.no_grad():
-        logits = model(tensor)  # (1, 14)
+        logits = model_hybrid(tensor)  # (1, 14)
         probs = torch.sigmoid(logits)[0].cpu().numpy()
 
     THRESHOLD = 0.5

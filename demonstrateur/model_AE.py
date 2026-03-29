@@ -4,7 +4,7 @@ from torch import nn
 import torch
 from torchvision.models import resnet18, ResNet18_Weights
 
-MODEL_PATH = Path.cwd() / "models" / "chestmnist_autoencoder.pth"
+MODEL_PATH = Path.cwd().parent / "models" / "chestmnist_autoencoder.pth"
 
 class ChestMNIST_autoencoder(nn.Module):
     def __init__(self, latent_dim=128, img_size=64):
